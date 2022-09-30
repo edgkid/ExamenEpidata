@@ -1,0 +1,33 @@
+package com.epidata.prueba.bd;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class ConnectionPg {
+
+	Connection conn = null;
+	
+	String user = "postgres";
+	String password = "admin";
+	String bd = "PruebaEpidataPunto2";
+	String ip = "127.0.0.1";
+	String port = "5432";
+	String jdbc = "jdbc:postgresql://" + ip + ":" + port + "/" + bd;
+	
+	public Connection dbConnection () {
+		
+		Class.forName("org.postgresql.Driver");
+		
+		try {
+			
+			this.conn = DriverManager.getConnection(jdbc, user, password);
+			System.out.println("Se establecio conexon con la base de datos ...");
+			
+		} catch (Exception e) {
+			System.out.println("No fue posible establecer conexion con la base de datos ... " );
+			e.printStackTrace();
+		}
+		
+		return this.conn;
+	}
+}

@@ -1,0 +1,5 @@
+package com.epidata.prueba.domain;
+
+public class ComplementInfo {
+
+}

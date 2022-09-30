@@ -1,0 +1,30 @@
+package com.epidata.prueba.db;
+
+public class OperationQuery {
+	
+	public String allProducts() {
+		
+		String value = "";
+		
+		return value;
+	}
+	
+	public String findProducts() {
+		
+		String value = "";
+		
+		return value;
+	}
+	
+	public String findProductComplementInfo() {
+		
+		String value = "	SELECT id as id,\r\n"
+						+ "		codigo_organizmo as cdg_org,\r\n"
+						+ "		temperatura_recomendada as temp_re\r\n"
+						+ "	FROM INFORMACION_COMPLEMENTO \r\n"
+						+ "	WHERE id_producto = 1";
+		
+		return value;
+	}
+
+}

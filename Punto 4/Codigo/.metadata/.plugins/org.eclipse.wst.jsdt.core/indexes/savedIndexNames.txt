@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+C:\Users\usuario\Desktop\Examen EPIDATA\Punto 4\Codigo\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+4271105957.index
+2967620815.index
+4167500997.index
+2496746813.index
+3944932452.index
+3300394235.index

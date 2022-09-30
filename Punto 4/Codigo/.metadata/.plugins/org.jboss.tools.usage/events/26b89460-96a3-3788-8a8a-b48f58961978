@@ -1,0 +1,10 @@
+#Thu Sep 29 15:56:01 VET 2022
+ct=examples
+a=create
+c=1
+s=0
+d=1664481361987
+v=3.1.500
+cmp=examples
+cl=org.jboss.archetype.wfk\:jboss-spring-mvc-archetype\:2.7.0.Final
+l=Project example name

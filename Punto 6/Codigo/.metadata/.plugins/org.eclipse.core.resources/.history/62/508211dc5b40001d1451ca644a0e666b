@@ -1,0 +1,9 @@
+package com.epidata.operation;
+
+public class ListOrder {
+
+	public int[] newOrder(){
+		
+		return null;
+	}
+}

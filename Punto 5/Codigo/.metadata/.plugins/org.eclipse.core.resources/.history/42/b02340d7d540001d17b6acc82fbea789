@@ -1,0 +1,70 @@
+package com.epidata.prueba.main;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.sql.Connection;
+
+import org.json.simple.JSONObject;
+
+import com.epidata.prueba.db.ConnectionPg;
+import com.epidata.prueba.operation.ProductOperation;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		String option = "";
+		boolean value = true;
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		ProductOperation productOperation = new ProductOperation();
+		JSONObject jsonObj = new JSONObject();
+		
+		while(value) {
+			
+			System.out.println("******************************************************************");
+			System.out.println("Por favor seleccione una opcion Para consultar Datos de Productos");
+			System.out.println("******************************************************************");
+			System.out.println("a) Buscar informacion de todos los productos");
+			System.out.println("b) Buscarinformacion de un producto por: id, nombre, lote, pais o tipo...");
+			System.out.print("c) para salir......: ");
+			
+			String stringValue = "";
+			try {
+				
+				stringValue = br.readLine();
+				
+				switch (stringValue) {
+				case "a":
+					System.out.println("*** indique total de registros..: ");
+					stringValue = br.readLine();
+					jsonObj.put("limit", stringValue);
+					System.out.println("*** indique ultima pagina.......: ");
+					stringValue = br.readLine();
+					jsonObj.put("offset", stringValue);
+					jsonObj.put("type_request", stringValue)
+					break;
+				case "b":
+					System.out.println("*** indique valor de filtro.......: ");
+					stringValue = br.readLine();
+					jsonObj.put("filter", stringValue);
+					break;
+				case "c":
+					
+					break;
+				default:
+					System.out.println("Opcion invalida");
+					break;
+				}
+				
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+		}
+
+		
+	}
+
+}

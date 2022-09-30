@@ -1,0 +1,19 @@
+package com.epidata.prueba.db;
+
+public class OperationQuery {
+	
+	public String allProducts() {
+		
+		String value = "";
+		
+		return value;
+	}
+	
+	public String findProducts() {
+		
+		String value = "";
+		
+		return value;
+	}
+
+}

@@ -1,0 +1,5 @@
+package com.epidata.prueba.db;
+
+public class OperationQuery {
+
+}

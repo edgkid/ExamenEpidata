@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Punto7</title>
+	</head>
+	<body>
+
+		<p>Se solicita codificar el javascript necesario para que ante el evento de cambio del input,
+se cambie el contenido a mayúsculas..</p>
+		
+		<form action="/action_page.php">
+		  <label for="fname">First name:</label>
+		  <input type="text" id="idName" name="name" placeholder="escribe un texto corto"><br><br>
+		</form>
+
+	</body>
+
+	<script type="text/javascript">
+		var inputName = document.getElementById("idName")
+	    inputName.addEventListener("focusout", upperFocusOut);
+	 
+	    function upperFocusOut(){
+	        inputName.value = inputName.value.toUpperCase();
+	    }
+	</script>
+</html>

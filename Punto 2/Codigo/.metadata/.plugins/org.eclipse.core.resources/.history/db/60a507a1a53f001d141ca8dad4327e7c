@@ -1,0 +1,10 @@
+package com.epidata.prueba.operation;
+
+public class ActivityByTest {
+
+	public void questionFromTestTwo() {
+		
+		System.out.println("a) Obtener todos los usuarios cuyo nombre tenga al menos una letra a (sea mayúscula o minúscula)");
+		System.out.println("b) Obtener todos los usuarios cuyo id sea entre 5 y 10.");
+	}
+}

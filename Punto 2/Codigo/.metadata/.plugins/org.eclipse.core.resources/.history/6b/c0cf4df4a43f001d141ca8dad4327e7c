@@ -1,0 +1,14 @@
+package com.epidata.prueba.main;
+
+import com.epidata.prueba.bd.ConnectionPg;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		ConnectionPg conn = new ConnectionPg();
+		conn.dbConnection();
+
+	}
+
+}

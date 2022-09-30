@@ -1,0 +1,45 @@
+package com.epidata.operation;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class ListOrder {
+
+	public List<Integer> newOrder(List<Integer> originalList){
+		
+		List<Integer>pList = new ArrayList<Integer>();
+		List<Integer>iList = new ArrayList<Integer>();
+		
+		for (int x= 0; x < originalList.size(); x++) {
+			
+			if (originalList.get(x) % 2 == 0) {
+				pList.add(originalList.get(x));
+			}else {
+				iList.add(originalList.get(x));
+			}
+			originalList.remove(x);
+			
+		}
+		
+		Collections.sort(pList); 
+		Collections.sort(iList); 
+		
+		originalList = new ArrayList<Integer>(pList);
+		originalList.addAll(iList);
+		
+		return originalList;
+	}
+	
+	public void printList(List<Integer> list) {
+		
+		System.out.print(list.get(x));
+		for (int x= 0; x < list.size(); x++) {
+			
+			System.out.print(list.get(x) + ", ");
+			
+		}
+		System.out.print(list.get(x));
+		
+	}
+}

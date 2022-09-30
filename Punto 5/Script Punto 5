@@ -1,0 +1,200 @@
+CREATE TABLE TIPO_PRODUCTO(
+	id int primary key,
+	nombre varchar(50) not null
+);
+	
+CREATE SEQUENCE tipo_producto_id_seq OWNED BY TIPO_PRODUCTO.id;
+ALTER TABLE TIPO_PRODUCTO ALTER COLUMN id SET DEFAULT nextval('tipo_producto_id_seq');
+UPDATE TIPO_PRODUCTO SET id = nextval('tipo_producto_id_seq');
+
+CREATE TABLE PRODUCTO (
+	
+	id int primary key,
+	nombre varchar(150) not null,
+	fecha_caducidad date not null,
+	numero_lote varchar(50) not null,
+	fecha_envasado date not null,
+	pais_origen varchar(100) not null,
+	
+	id_tipo_producto int not null
+);
+
+CREATE SEQUENCE producto_id_seq OWNED BY PRODUCTO.id;
+ALTER TABLE PRODUCTO ALTER COLUMN id SET DEFAULT nextval('producto_id_seq');
+UPDATE PRODUCTO SET id = nextval('producto_id_seq');
+
+ALTER TABLE pRODUCTO ADD CONSTRAINT fk_tipo_producto FOREIGN KEY (id_tipo_producto) REFERENCES TIPO_PRODUCTO (id);
+
+CREATE TABLE INFORMACION_COMPLEMENTO(
+	
+	id int primary key,
+	codigo_organizmo varchar(50),
+	temperatura_recomendada float,
+	
+	id_producto int 
+);
+
+CREATE SEQUENCE producto_info_id_seq OWNED BY INFORMACION_COMPLEMENTO.id;
+ALTER TABLE INFORMACION_COMPLEMENTO ALTER COLUMN id SET DEFAULT nextval('producto_info_id_seq');
+UPDATE INFORMACION_COMPLEMENTO SET id = nextval('producto_info_id_seq');
+
+ALTER TABLE INFORMACION_COMPLEMENTO ADD CONSTRAINT fk_producto_info FOREIGN KEY (id_producto) REFERENCES PRODUCTO (id);
+
+CREATE TABLE METODO_NITRO(
+	
+	id int primary key,
+	metodo varchar(100) not null,
+	tiempo_exp float not null
+);
+
+CREATE SEQUENCE nitro_id_seq OWNED BY METODO_NITRO.id;
+ALTER TABLE METODO_NITRO ALTER COLUMN id SET DEFAULT nextval('nitro_id_seq');
+UPDATE METODO_NITRO SET id = nextval('nitro_id_seq');
+
+CREATE TABLE METODO_AIRE(
+	
+	id int primary key,
+	prc_nitro float not null,
+	prc_oxigeno float  not null,
+	prc_carbon float not null,
+	prc_vapor float not null
+);
+
+CREATE SEQUENCE aire_id_seq OWNED BY METODO_AIRE.id;
+ALTER TABLE METODO_AIRE ALTER COLUMN id SET DEFAULT nextval('aire_id_seq');
+UPDATE METODO_AIRE SET id = nextval('aire_id_seq');
+
+CREATE TABLE METODO_AGUA(
+	
+	id int primary key,
+	gr_sal float not null,
+	lts_agua float  not null
+
+);
+
+CREATE SEQUENCE agua_id_seq OWNED BY METODO_AGUA.id;
+ALTER TABLE METODO_AGUA ALTER COLUMN id SET DEFAULT nextval('agua_id_seq');
+UPDATE METODO_AGUA SET id = nextval('agua_id_seq');
+
+
+CREATE TABLE PRODUCTO_CONGELADO(
+	
+	id int primary key,
+	
+	id_producto int,
+	id_metodo_nitro int,
+	id_metodo_aire int,
+	id_metodo_agua int
+
+);
+
+CREATE SEQUENCE congelado_id_seq OWNED BY PRODUCTO_CONGELADO.id;
+ALTER TABLE PRODUCTO_CONGELADO ALTER COLUMN id SET DEFAULT nextval('congelado_id_seq');
+UPDATE PRODUCTO_CONGELADO SET id = nextval('congelado_id_seq');
+
+ALTER TABLE PRODUCTO_CONGELADO ADD CONSTRAINT fk_producto FOREIGN KEY (id_producto) REFERENCES PRODUCTO (id);
+ALTER TABLE PRODUCTO_CONGELADO ADD CONSTRAINT fk_m_nitro FOREIGN KEY (id_metodo_nitro) REFERENCES METODO_NITRO (id);
+ALTER TABLE PRODUCTO_CONGELADO ADD CONSTRAINT fk_m_aire FOREIGN KEY (id_metodo_aire) REFERENCES METODO_AIRE (id);
+ALTER TABLE PRODUCTO_CONGELADO ADD CONSTRAINT fk_m_agua FOREIGN KEY (id_metodo_agua) REFERENCES METODO_AGUA (id);
+
+
+INSERT INTO TIPO_PRODUCTO (nombre) VALUES ('Fresco');
+INSERT INTO TIPO_PRODUCTO (nombre) VALUES ('Refrigerado');
+INSERT INTO TIPO_PRODUCTO (nombre) VALUES ('Congelado');
+
+INSERT INTO PRODUCTO (nombre, fecha_caducidad, numero_lote, fecha_envasado, pais_origen, id_tipo_producto) 
+	VALUES ('Producto CA', (SELECT NOW()), 'L0001', (SELECT NOW()), 'VENEZUELA', 3);
+INSERT INTO PRODUCTO (nombre, fecha_caducidad, numero_lote, fecha_envasado, pais_origen, id_tipo_producto) 
+	VALUES ('Producto CB', (SELECT NOW()), 'L0001', (SELECT NOW()), 'VENEZUELA', 3);
+INSERT INTO PRODUCTO (nombre, fecha_caducidad, numero_lote, fecha_envasado, pais_origen, id_tipo_producto) 
+	VALUES ('Producto FA', (SELECT NOW()), 'L0001', (SELECT NOW()), 'VENEZUELA', 1);
+INSERT INTO PRODUCTO (nombre, fecha_caducidad, numero_lote, fecha_envasado, pais_origen, id_tipo_producto) 
+	VALUES ('Producto FB', (SELECT NOW()), 'L0002', (SELECT NOW()), 'VENEZUELA', 1);
+INSERT INTO PRODUCTO (nombre, fecha_caducidad, numero_lote, fecha_envasado, pais_origen, id_tipo_producto) 
+	VALUES ('Producto FC', (SELECT NOW()), 'L0002', (SELECT NOW()), 'VENEZUELA', 1);
+INSERT INTO PRODUCTO (nombre, fecha_caducidad, numero_lote, fecha_envasado, pais_origen, id_tipo_producto) 
+	VALUES ('Producto RA', (SELECT NOW()), 'L0001', (SELECT NOW()), 'VENEZUELA', 1);
+	
+INSERT INTO INFORMACION_COMPLEMENTO (codigo_organizmo, temperatura_recomendada, id_producto) 
+	VALUES ('org.00A', 15.7, 6);
+INSERT INTO INFORMACION_COMPLEMENTO (codigo_organizmo, temperatura_recomendada, id_producto) 
+	VALUES (null, 6.35, 1);
+INSERT INTO INFORMACION_COMPLEMENTO (codigo_organizmo, temperatura_recomendada, id_producto) 
+	VALUES (null, 6.35, 2);
+
+INSERT INTO METODO_NITRO (metodo, tiempo_exp) VALUES('Metodo Test A', 20);
+INSERT INTO METODO_AGUA (gr_sal, lts_agua) VALUES(15.5, 8.5);
+
+INSERT INTO PRODUCTO_CONGELADO (id_producto, id_metodo_nitro, id_metodo_aire, id_metodo_agua) 
+	VALUES (1, 1, null, null);
+INSERT INTO PRODUCTO_CONGELADO (id_producto, id_metodo_nitro, id_metodo_aire, id_metodo_agua) 
+	VALUES (1, null, null, 1);
+	
+commit;
+
+-- ////////////////////////////// Consultas ////////////////////////////////////////
+-- todos los productos
+SELECT pr.id as id,
+	pr.nombre as nombre,
+	pr.fecha_caducidad as  f_caducidad,
+	pr.fecha_envasado as f_envasado,
+	pr.numero_lote as lote,
+	pr.pais_origen as pais_origen
+FROM PRODUCTO pr,
+	TIPO_PRODUCTO tp
+WHERE pr.id_tipo_producto = tp.id
+
+-- producto segun id, nombre, lote, pais_origen, o tipo
+SELECT pr.id as id,
+	pr.nombre as nombre,
+	pr.fecha_caducidad as  f_caducidad,
+	pr.fecha_envasado as f_envasado,
+	pr.numero_lote as lote,
+	pr.pais_origen as pais_origen,
+	tp.nombre as tipo
+FROM PRODUCTO pr,
+	TIPO_PRODUCTO tp
+WHERE pr.id_tipo_producto = tp.id
+	AND (
+		pr.id = '1' OR
+		upper(pr.nombre) LIKE upper('%1') OR
+		pr.numero_lote = '1' OR
+		pr.pais_origen = '1' OR
+		upper(tp.nombre) = upper('1')
+	)
+
+-- Buscar informacion comp,ementaria en caso de aplicar
+SELECT id as id,
+	codigo_organizmo as cdg_org,
+	temperatura_recomendada as temp_re
+FROM INFORMACION_COMPLEMENTO 
+WHERE id_producto = 1
+
+-- Informacion metodo nitro
+SELECT mn.id as id,
+	mn.metodo as metodo,
+	mn.tiempo_exp as t_exp
+FROM PRODUCTO_CONGELADO pc,
+	METODO_NITRO mn
+WHERE pc.id_metodo_nitro = mn.id	
+	AND pc.id_producto = 1
+	
+-- Informacion metodo agua
+SELECT ma.id as id,
+	ma.gr_sal as sal,
+	ma.lts_agua as agua
+FROM PRODUCTO_CONGELADO pc,
+	METODO_AGUA ma
+WHERE pc.id_metodo_agua = ma.id	
+	AND pc.id_producto = 1
+
+-- INformacion metodo Aire
+SELECT ma.id as id,
+	ma.prc_nitro as nitro,
+	ma.prc_oxigeno as agua,
+	ma.prc_carbon as carbon,
+	ma.prc_vapor as vapor
+FROM PRODUCTO_CONGELADO pc,
+	METODO_AIRE ma
+WHERE pc.id_metodo_agua = ma.id	
+	AND pc.id_producto = 1

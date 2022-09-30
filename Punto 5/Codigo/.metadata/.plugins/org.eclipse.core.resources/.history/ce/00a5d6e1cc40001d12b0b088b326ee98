@@ -1,0 +1,38 @@
+package com.epidata.prueba.db;
+
+public class OperationQuery {
+	
+	public String allProducts() {
+		
+		String value = "";
+		
+		return value;
+	}
+	
+	public String findProducts() {
+		
+		String value = "SELECT pr.id as id,\r\n"
+				+ "	pr.nombre as nombre,\r\n"
+				+ "	pr.fecha_caducidad as  f_caducidad,\r\n"
+				+ "	pr.fecha_envasado as f_envasado,\r\n"
+				+ "	pr.numero_lote as lote,\r\n"
+				+ "	pr.pais_origen as pais_origen\r\n"
+				+ "FROM PRODUCTO pr,\r\n"
+				+ "	TIPO_PRODUCTO tp\r\n"
+				+ "WHERE pr.id_tipo_producto = tp.id limit ? offset ? ;";
+		
+		return value;
+	}
+	
+	public String findProductComplementInfo() {
+		
+		String value = "	SELECT id as id,\r\n"
+						+ "		codigo_organizmo as cdg_org,\r\n"
+						+ "		temperatura_recomendada as temp_re\r\n"
+						+ "	FROM INFORMACION_COMPLEMENTO \r\n"
+						+ "	WHERE id_producto = ? ;";
+		
+		return value;
+	}
+
+}

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kb-project>
+ <depends-on-projects/>
+ <used-by-projects/>
+ <paths>
+  <path value="C:/Users/usuario/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar"/>
+  <path value="C:/Users/usuario/.m2/repository/com/googlecode/jmapper-framework/jmapper-api/1.2.1/jmapper-api-1.2.1.jar"/>
+  <path value="C:/Users/usuario/.m2/repository/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0.jar"/>
+  <path value="C:/Users/usuario/.m2/repository/org/javassist/javassist/3.20.0-GA/javassist-3.20.0-GA.jar"/>
+  <path value="C:/Users/usuario/.m2/repository/xmlpull/xmlpull/1.1.3.1/xmlpull-1.1.3.1.jar"/>
+  <path value="C:/Users/usuario/.m2/repository/com/google/code/findbugs/annotations/2.0.1/annotations-2.0.1.jar"/>
+  <path value="C:/Users/usuario/.m2/repository/com/thoughtworks/xstream/xstream/1.4.9/xstream-1.4.9.jar"/>
+  <path value="C:/Users/usuario/.m2/repository/com/google/guava/guava/15.0/guava-15.0.jar"/>
+  <path value="C:/Users/usuario/.m2/repository/javax/javaee-web-api/6.0/javaee-web-api-6.0.jar">
+   <libraries>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-web-api-6.0.jar/meta-inf/c-1_0-rt.tld" project="EpidatPunto4"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-web-api-6.0.jar/meta-inf/c-1_0.tld" project="EpidatPunto4"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-web-api-6.0.jar/meta-inf/c.tld" project="EpidatPunto4"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-web-api-6.0.jar/meta-inf/fmt-1_0-rt.tld" project="EpidatPunto4"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-web-api-6.0.jar/meta-inf/fmt-1_0.tld" project="EpidatPunto4"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-web-api-6.0.jar/meta-inf/fmt.tld" project="EpidatPunto4"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-web-api-6.0.jar/meta-inf/fn.tld" project="EpidatPunto4"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-web-api-6.0.jar/meta-inf/html_basic.tld" project="EpidatPunto4"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-web-api-6.0.jar/meta-inf/jsf_core.tld" project="EpidatPunto4"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-web-api-6.0.jar/meta-inf/mojarra_ext.tld" project="EpidatPunto4"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-web-api-6.0.jar/meta-inf/permittedtaglibs.tld" project="EpidatPunto4"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-web-api-6.0.jar/meta-inf/scriptfree.tld" project="EpidatPunto4"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-web-api-6.0.jar/meta-inf/sql-1_0-rt.tld" project="EpidatPunto4"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-web-api-6.0.jar/meta-inf/sql-1_0.tld" project="EpidatPunto4"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-web-api-6.0.jar/meta-inf/sql.tld" project="EpidatPunto4"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-web-api-6.0.jar/meta-inf/x-1_0-rt.tld" project="EpidatPunto4"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-web-api-6.0.jar/meta-inf/x-1_0.tld" project="EpidatPunto4"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-javaee-web-api-6.0.jar/meta-inf/x.tld" project="EpidatPunto4"/>
+    </library>
+   </libraries>
+  </path>
+  <path value="C:/Users/usuario/Desktop/Examen EPIDATA/Punto 4/Codigo/EpidatPunto4/target/endorsed/javaee-endorsed-api-6.0.jar"/>
+  <path value="C:/Users/usuario/.m2/repository/org/slf4j/slf4j-api/1.7.21/slf4j-api-1.7.21.jar"/>
+  <path value="C:/Users/usuario/.m2/repository/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.jar"/>
+  <path value="C:/Users/usuario/.m2/repository/org/reflections/reflections/0.9.10/reflections-0.9.10.jar"/>
+  <path value="C:/Users/usuario/.m2/repository/com/googlecode/jmapper-framework/jmapper-core/1.6.0.1/jmapper-core-1.6.0.1.jar"/>
+ </paths>
+ <validation>
+  <core validator-id="jsf-verification"/>
+  <core validator-id="jboss.jsf.core"/>
+  <el>
+   <linked-el length="35" name="%0" offset="505" path="%1"/>
+   <linked-el length="15" name="%2" offset="1500" path="%1"/>
+   <linked-el length="35" name="%3" offset="505" path="%1"/>
+   <linked-el length="35" name="%4" offset="505" path="%1"/>
+   <linked-el length="15" name="%5" offset="1500" path="%1"/>
+  </el>
+ </validation>
+ <aliases>
+  <alias path="project.build.directory" value="%0"/>
+  <alias path="/EpidatPunto4/pom.xml" value="%1"/>
+  <alias path="endorsed.dir" value="%2"/>
+  <alias path="project" value="%3"/>
+  <alias path="project.build" value="%4"/>
+  <alias path="endorsed" value="%5"/>
+ </aliases>
+ <includes/>
+ <uris/>
+</kb-project>

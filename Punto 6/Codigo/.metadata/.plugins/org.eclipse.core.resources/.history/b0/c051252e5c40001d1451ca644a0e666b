@@ -1,0 +1,11 @@
+package com.epidata.operation;
+
+import java.util.List;
+
+public class ListOrder {
+
+	public List<Integer> newOrder(){
+		
+		return null;
+	}
+}

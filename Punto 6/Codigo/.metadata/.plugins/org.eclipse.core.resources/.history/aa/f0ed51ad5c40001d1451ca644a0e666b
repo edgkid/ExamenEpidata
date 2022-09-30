@@ -1,0 +1,15 @@
+package com.epidata.operation;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ListOrder {
+
+	public List<Integer> newOrder(List<Integer> originalList){
+		
+		List<Integer>pList = new ArrayList<Integer>();
+		List<Integer>iList = new ArrayList<Integer>();
+		
+		return null;
+	}
+}

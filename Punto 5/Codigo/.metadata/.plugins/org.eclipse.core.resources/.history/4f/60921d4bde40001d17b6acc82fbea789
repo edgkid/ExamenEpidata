@@ -1,0 +1,84 @@
+package com.epidata.prueba.db;
+
+public class OperationQuery {
+	
+	public String findProducts() {
+		
+		String value = "	SELECT pr.id as id,  "
+						+ "		pr.nombre as nombre,  "
+						+ "		pr.fecha_caducidad as  f_caducidad,  "
+						+ "		pr.fecha_envasado as f_envasado,  "
+						+ "		pr.numero_lote as lote,  "
+						+ "		pr.pais_origen as pais_origen,  "
+						+ "		tp.nombre as tipo  "
+						+ "	FROM PRODUCTO pr,  "
+						+ "		TIPO_PRODUCTO tp  "
+						+ "	WHERE pr.id_tipo_producto = tp.id  "
+						+ "		AND (  "
+						+ "			pr.id = ? OR  "
+						+ "			upper(pr.nombre) LIKE upper(?) OR  "
+						+ "			pr.numero_lote = ? OR  "
+						+ "			pr.pais_origen = ? OR  "
+						+ "			upper(tp.nombre) = upper(?)  "
+						+ "	);  ";
+		
+		return value;
+	}
+	
+	public String allProducts() {
+		
+		String value = "	SELECT pr.id as id,  "
+						+ "		pr.nombre as nombre,  "
+						+ "		pr.fecha_caducidad as  f_caducidad,  "
+						+ "		pr.fecha_envasado as f_envasado,  "
+						+ "		pr.numero_lote as lote,  "
+						+ "		pr.pais_origen as pais_origen,  "
+						+ "		tp.nombre as tipo"
+						+ "	FROM PRODUCTO pr,  "
+						+ "		TIPO_PRODUCTO tp  "
+						+ "	WHERE pr.id_tipo_producto = tp.id limit ? offset ? ;";
+		
+		return value;
+	}
+	
+	public String findProductComplementInfo() {
+		
+		String value = "	SELECT id as id,  "
+						+ "		codigo_organizmo as cdg_org,  "
+						+ "		temperatura_recomendada as temp_re  "
+						+ "	FROM INFORMACION_COMPLEMENTO   "
+						+ "	WHERE id_producto = ? ;";
+		
+		return value;
+	}
+	
+	public String findInfoMetodoAgua() {
+		
+		String value = "";
+		
+		return value;
+	}
+	
+	public String findInfoMetodoNitro() {
+		
+		String value = "";
+		
+		return value;
+	}
+	
+	public String findInfoMetodoAire() {
+		
+		String value = "	SELECT ma.id as id,\r\n"
+						+ "		ma.prc_nitro as nitro,\r\n"
+						+ "		ma.prc_oxigeno as agua,\r\n"
+						+ "		ma.prc_carbon as carbon,\r\n"
+						+ "		ma.prc_vapor as vapor\r\n"
+						+ "	FROM PRODUCTO_CONGELADO pc,\r\n"
+						+ "		METODO_AIRE ma\r\n"
+						+ "	WHERE pc.id_metodo_agua = ma.id	\r\n"
+						+ "		AND pc.id_producto = ? ;";
+		
+		return value;
+	}
+
+}

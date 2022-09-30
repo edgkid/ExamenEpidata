@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+C:\Users\usuario\Desktop\Examen EPIDATA\Punto 6\Codigo\.metadata\.plugins\org.eclipse.jdt.core
+3002958262.index
+1865797976.index
+3471265696.index

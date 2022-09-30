@@ -1,0 +1,16 @@
+package com.epidata.prueba.main;
+
+import java.sql.Connection;
+
+import com.epidata.prueba.db.ConnectionPg;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Connection conn = new ConnectionPg().dbConnection();
+		
+		
+	}
+
+}

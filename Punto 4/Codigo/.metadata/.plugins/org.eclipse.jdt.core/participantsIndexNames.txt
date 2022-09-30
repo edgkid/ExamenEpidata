@@ -1,0 +1,5 @@
+INDEX VERSION 1.131
+C:\Users\usuario\Desktop\Examen EPIDATA\Punto 4\Codigo\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\194611150.index
+\jboss-springmvc-webapp-Punto4\src\main\resources
+C:\Users\usuario\Desktop\Examen EPIDATA\Punto 4\Codigo\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\688105053.index
+\EpidatPunto4\src\main\java

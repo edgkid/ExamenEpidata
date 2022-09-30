@@ -1,0 +1,11 @@
+package com.epidata.prueba.domain;
+
+public class ComplementInfo {
+	
+	private int id;
+	private float temp;
+	private String orgCode;
+	
+	
+
+}

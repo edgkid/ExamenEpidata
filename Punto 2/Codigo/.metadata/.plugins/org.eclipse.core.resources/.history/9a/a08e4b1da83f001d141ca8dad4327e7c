@@ -1,0 +1,41 @@
+package com.epidata.prueba.bd;
+
+public class OperationQuery {
+	
+	public String getQueryOptionA () {
+		
+		String value = "";
+		
+		return value;
+	}
+	
+	public String getQueryOptionB () {
+		
+		String value = "";
+		
+		return value;
+	}
+
+	public String getQueryOptionC () {
+		
+		String value = "";
+		
+		return value;
+	}
+	
+	public String getQueryOptionD () {
+		
+		String value = "";
+		
+		return value;
+	}
+	
+	public String getQueryOptionE () {
+		
+		String value = "";
+		
+		return value;
+	}
+
+
+}

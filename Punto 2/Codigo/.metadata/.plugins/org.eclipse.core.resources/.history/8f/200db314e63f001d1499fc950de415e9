@@ -1,0 +1,21 @@
+package com.epidata.prueba.bd;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class ShowDataOption {
+
+		public void ShowDataOptionA() {
+			
+			Connection conn = new ConnectionPg().dbConnection();
+			try {
+				PreparedStatement myStmt = conn.prepareStatement("");
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+}

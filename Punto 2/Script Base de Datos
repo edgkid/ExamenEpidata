@@ -1,0 +1,95 @@
+CREATE TABLE USUARIO(
+	id int primary key,
+	nombre varchar(60)
+);
+
+CREATE TABLE rol(
+	
+	id int primary key,
+	descripcion varchar(255),
+	nivel int
+);
+
+CREATE TABLE USUARIO_ROL(
+	id_usuario int,
+	id_rol int
+);
+
+ALTER TABLE USUARIO_ROL ADD CONSTRAINT fk_usuario FOREIGN KEY (id_usuario) REFERENCES USUARIO (id);
+ALTER TABLE USUARIO_ROL ADD CONSTRAINT fk_rol FOREIGN KEY (id_rol) REFERENCES ROL (id);
+
+CREATE SEQUENCE user_id_seq OWNED BY usuario.id;
+ALTER TABLE usuario ALTER COLUMN id SET DEFAULT nextval('user_id_seq');
+UPDATE usuario SET id = nextval('user_id_seq');
+
+INSERT INTO USUARIO (nombre) VALUES ('edgar');
+INSERT INTO USUARIO (nombre) VALUES ('pedro');
+INSERT INTO USUARIO (nombre) VALUES ('Barbara');
+INSERT INTO USUARIO (nombre) VALUES ('Victoria');
+INSERT INTO USUARIO (nombre) VALUES ('DIMAS');
+INSERT INTO USUARIO (nombre) VALUES ('DANIEla');
+commit;
+
+CREATE SEQUENCE rol_id_seq OWNED BY rol.id;
+ALTER TABLE rol ALTER COLUMN id SET DEFAULT nextval('rol_id_seq');
+UPDATE rol SET id = nextval('rol_id_seq');
+
+INSERT INTO ROL (descripcion, nivel) VALUES ('Prueba A', 0);
+INSERT INTO ROL (descripcion, nivel) VALUES ('Prueba B', 1);
+INSERT INTO ROL (descripcion, nivel) VALUES ('Prueba C', 2);
+INSERT INTO ROL (descripcion, nivel) VALUES ('Prueba D', 3);
+commit;
+
+INSERT INTO USUARIO_ROL (id_usuario, id_rol) VALUES (1, 1);
+INSERT INTO USUARIO_ROL (id_usuario, id_rol) VALUES (2, 2);
+INSERT INTO USUARIO_ROL (id_usuario, id_rol) VALUES (3, 3);
+INSERT INTO USUARIO_ROL (id_usuario, id_rol) VALUES (4, 4);
+INSERT INTO USUARIO_ROL (id_usuario, id_rol) VALUES (5, 4);
+INSERT INTO USUARIO_ROL (id_usuario, id_rol) VALUES (6, 4);
+commit;
+
+-- a) Obtener todos los usuarios cuyo nombre tenga al menos una letra a (sea mayscula o minuscula)
+SELECT usu.id as id,
+	usu.nombre as usuario
+FROM USUARIO usu
+WHERE upper(nombre) like upper('%a%'); 
+
+-- b) Obtener todos los usuarios cuyo id sea entre 5 y 10
+SELECT usu.id as id,
+	usu.nombre as usuario
+FROM USUARIO usu
+WHERE usu.id >= 5 
+	AND usu.id <= 10;
+
+-- c)Obtner todos los roles de cada usuario
+SELECT usu.id as id_usuario,
+		usu.nombre as usuario,
+		ro.descripcion as rol,
+		ro.nivel as nivel
+FROM usuario usu,
+	usuario_rol uso,
+	rol ro
+WHERE usu.id = uso.id_usuario
+	AND uso.id_rol = ro.id;
+
+-- d) obtener la cantidad de usuario que tiene cada rol
+SELECT ro.id as id, 
+	ro.descripcion as rol,
+	(	SELECT count(r.id_usuario) 
+		FROM usuario_rol r
+		WHERE r.id_rol = ro.id) as total
+FROM rol ro;
+
+-- e) obtener todos los usuairos con la mayor jerarquia
+SELECT usu.id as id_usuario,
+		usu.nombre as usuario,
+		ro.descripcion as rol,
+		ro.nivel as nivel
+FROM usuario usu,
+	usuario_rol uso,
+	rol ro
+WHERE usu.id = uso.id_usuario
+	AND uso.id_rol = ro.id
+	AND uso.id_rol = (SELECT id 
+					  FROM rol 
+					  WHERE nivel = (SELECT min(nivel) FROM rol) );

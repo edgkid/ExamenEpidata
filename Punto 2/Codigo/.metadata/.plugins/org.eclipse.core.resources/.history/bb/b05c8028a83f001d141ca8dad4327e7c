@@ -1,0 +1,44 @@
+package com.epidata.prueba.bd;
+
+public class OperationQuery {
+	
+	public String getQueryOptionA () {
+		
+		String value = "	SELECT usu.id as id,	"
+						+ "		usu.nombre as usuario	"
+						+ "	FROM USUARIO usu	"
+						+ "	WHERE upper(nombre) like upper('%a%'); ";
+		
+		return value;
+	}
+	
+	public String getQueryOptionB () {
+		
+		String value = "";
+		
+		return value;
+	}
+
+	public String getQueryOptionC () {
+		
+		String value = "";
+		
+		return value;
+	}
+	
+	public String getQueryOptionD () {
+		
+		String value = "";
+		
+		return value;
+	}
+	
+	public String getQueryOptionE () {
+		
+		String value = "";
+		
+		return value;
+	}
+
+
+}

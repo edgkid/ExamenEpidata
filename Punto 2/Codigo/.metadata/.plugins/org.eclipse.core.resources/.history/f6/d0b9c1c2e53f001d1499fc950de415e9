@@ -1,0 +1,14 @@
+package com.epidata.prueba.bd;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+public class ShowDataOption {
+
+		public void ShowDataOptionA() {
+			
+			Connection conn = new ConnectionPg().dbConnection();
+			PreparedStatement myStmt = conn.prepareStatement()
+			
+		}
+}

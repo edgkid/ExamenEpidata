@@ -1,0 +1,44 @@
+package com.epidata.prueba.main;
+
+public class TotalSolves {
+	
+	int queens=8;
+    // Define la matriz para guardar el resultado de la colocación de la reina
+    int[] array=new int[queens];
+    int count=0;
+    
+	public void check(int n){
+        if(n==queens){// Cuando n es igual a 8, significa que se han guardado 8 reinas
+            showResult();
+            return;
+        }
+        // Pon a las reinas por turno y juzga si hay conflicto
+        for (int i = 0; i < queens; i++) {
+            // Coloca la reina actual n en la columna i de la fila
+            array[n]=i;
+            // Determinar si la posición actual entra en conflicto
+            if(judge(n)){// No entren en conflicto
+                // Luego pon n + 1 reinas
+                check(n+1);
+            }
+        }
+    }
+	
+	public boolean judge(int n){
+        for (int i = 0; i < n; i++) {
+            if(array[i]==array[n]||Math.abs(n-i)==Math.abs(array[n]-array[i])){
+                    return false;
+            }
+        }
+        return true;
+    }
+
+    public void showResult(){
+        count ++;
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i]+" ");
+        }
+        System.out.println();
+    }
+
+}

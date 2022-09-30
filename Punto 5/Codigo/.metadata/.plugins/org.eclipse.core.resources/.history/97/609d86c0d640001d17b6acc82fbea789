@@ -1,0 +1,19 @@
+package com.epidata.prueba.operation;
+
+import org.json.simple.JSONObject;
+
+import com.epidata.prueba.domain.Product;
+
+public class ProductOperation {
+	
+	public JSONObject showProductsInfo (JSONObject data, String typeRequest) {
+		
+		JSONObject buildRequest = new JSONObject();
+		
+		buildRequest.put("request_type", typeRequest);
+		buildRequest.put("request_info", data.get("info"));
+		
+		return new Product().productInfo(buildRequest);
+	}
+
+}
